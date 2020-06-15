@@ -1,0 +1,45 @@
+// Base size
+$size: 200px;
+$space: 20px;
+// Forground Color
+$color: #f00;
+$font-stack: Helvetica, Roboto, Arial;
+$border-size: 1px;
+// Petal size
+$petal-size: $size * 0.6;
+$petals: 5;
+@for $i from 1 through $petals {
+  $hue: 360 / $petals * $i;
+  .petal-#{$i} { 
+    background-color: hsla($hue, 100%, 50%, 0.2)
+   }
+}
+
+.container {
+    width: $size; // width: 200px;
+
+    div {
+        width: 120px;
+    }
+}
+  
+.box {
+    margin: $space; // margin: 20px;
+}
+
+h1 {
+    font-family: $font-stack; // font-family: Helvetica, Roboto, Arial;
+    font-size: $space * 2; // font-size: 40px;
+}
+
+button {
+  padding: $space $space / 2; padding: 20px 10px;
+}
+
+@for $i from 1 through 6 {
+    h#{$i} { font-size: 7 - $i * 12px; }
+}
+
+@for $i from 1 through 6 {
+    .petal-#{$i} { color: red; }
+}
