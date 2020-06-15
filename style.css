@@ -18,73 +18,206 @@
   background-color: rgba(255, 0, 0, 0.2);
 }
 
+@-webkit-keyframes petal-1 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(-45);
+            transform: rotate(-45);
+  }
+}
+
+@keyframes petal-1 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(-45);
+            transform: rotate(-45);
+  }
+}
+
+@-webkit-keyframes petal-2 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@keyframes petal-2 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+}
+
+@-webkit-keyframes petal-3 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(45);
+            transform: rotate(45);
+  }
+}
+
+@keyframes petal-3 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(45);
+            transform: rotate(45);
+  }
+}
+
+@-webkit-keyframes petal-4 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(90);
+            transform: rotate(90);
+  }
+}
+
+@keyframes petal-4 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(90);
+            transform: rotate(90);
+  }
+}
+
+@-webkit-keyframes petal-5 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(135);
+            transform: rotate(135);
+  }
+}
+
+@keyframes petal-5 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(135);
+            transform: rotate(135);
+  }
+}
+
+/* Container styles */
 .container {
   width: 200px;
+  height: 200px;
+  border: solid 1px;
+  position: relative;
 }
 
 .container div {
+  position: absolute;
+  border-radius: 0 70% 40% 70%;
+  border: 1px solid;
   width: 120px;
+  height: 120px;
+  /* Position these in the center */
+  left: 10px;
+  top: 50px;
+  /* Rotate 45 deg points the point at the top */
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  /* Move the point of transformation to the lower right */
+  -webkit-transform-origin: 90px 90px;
+          transform-origin: 90px 90px;
+  -webkit-animation-duration: 6000ms;
+          animation-duration: 6000ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  /* Important! Without this the elements will snap
+    to their starting positions when the animation ends! */
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
-.box {
-  margin: 20px;
+@keyframes petal-1 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
 }
 
-h1 {
-  font-family: Helvetica, Roboto, Arial;
-  font-size: 40px;
+@keyframes petal-2 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
 }
 
-button {
-  padding: 20px 10px;
-  padding: 20px 10px;
+@keyframes petal-4 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
 }
 
-h1 {
-  font-size: -5px;
+@keyframes petal-5 {
+  0% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
 }
 
-h2 {
-  font-size: -17px;
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-h3 {
-  font-size: -29px;
-}
-
-h4 {
-  font-size: -41px;
-}
-
-h5 {
-  font-size: -53px;
-}
-
-h6 {
-  font-size: -65px;
-}
-
-.petal-1 {
-  color: red;
-}
-
-.petal-2 {
-  color: red;
-}
-
-.petal-3 {
-  color: red;
-}
-
-.petal-4 {
-  color: red;
-}
-
-.petal-5 {
-  color: red;
-}
-
-.petal-6 {
-  color: red;
+body, html {
+  height: 100%;
 }
 /*# sourceMappingURL=style.css.map */
