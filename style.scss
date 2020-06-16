@@ -1,41 +1,22 @@
-// Base size
 $size: 200px;
 $space: 20px;
-$font-stack: Helvetica, Roboto, Arial;
+$color: #f00;
 $border-size: 1px;
 $petals: 5;
-// Petal size
-$petal-size: $size * 0.6;
-
-@for $i from 1 through $petals {
-  $hue: 360 / $petals * $i;
-  .petal-#{$i} { 
-    background-color: hsla($hue, 100%, 50%, 0.2)
-   }
-}
-
-@for $i from 1 through $petals {
-  $petal-rotation: -45 + (45 * ($i - 1));
-  @keyframes petal-#{$i} { 
-    0% { transform: rotate(45deg); }
-    100% { transform: rotate($petal-rotation); }
-  }
-}
-
 
 /* Container styles */
 .container {
   width: $size;
   height: $size;
-  border: solid $border-size;
+  border: $border-size solid;
   position: relative;
 
   div {
     position: absolute;
     border-radius: 0 70% 40% 70%;
     border: $border-size solid;
-    width: $petal-size;
-    height: $petal-size;
+    width: 120px;
+    height: 120px;
     /* Position these in the center */
     left: 10px;
     top: 50px;
@@ -48,30 +29,28 @@ $petal-size: $size * 0.6;
     /* Important! Without this the elements will snap
     to their starting positions when the animation ends! */
     animation-fill-mode: forwards;
-  }
 
-  @keyframes petal-1 {
-    0% { transform: rotate(45deg); }
-    100% { transform: rotate(-45deg); }
+    @for $i from 1 through $petals {
+      $hue: 360 / $petals * $i;
+        &:nth-child(#{$i}) { 
+        background-color: hsla($hue, 100%, 50%, 0.2);
+        animation-name: bloom-#{$i}
+      }
+    }
   }
-  
-  @keyframes petal-2 {
-    0% { transform: rotate(45deg); }
-    100% { transform: rotate(135deg); }
-  }
-  
-  @keyframes petal-4 {
-    0% { transform: rotate(45deg); }
-    100% { transform: rotate(0deg); }
-  }
-  
-  @keyframes petal-5 {
-    0% { transform: rotate(45deg); }
-    100% { transform: rotate(90deg); }
-  }
-
 }
 
+@for $i from 1 through $petals {
+  $rotation: -45 + (45 * ($i - 1));
+    @keyframes bloom-#{$i} { 
+      0% {
+        transform: rotate(45deg);
+      }
+      100% {
+        transform: rotate(#{$rotation}deg);
+      }
+  }
+}
 
 body {
   display: flex;
